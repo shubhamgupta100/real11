@@ -17,6 +17,9 @@ const LoginSignUp = () => {
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
+  if (error) {
+    alert.error(error);
+  }
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -39,6 +42,7 @@ const LoginSignUp = () => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+
     alert.success("Login Successfully!");
   };
 

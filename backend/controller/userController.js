@@ -1,15 +1,16 @@
 const User = require("../model/user");
-const sendToken = require("../utils/jwtTokens");
 const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/errorHandler");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 //Register
-module.exports.register = async (req, res, next) => {
+module.exports.register = catchAsyncErrors(async (req, res, next) => {
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
     crop: "scale",
   });
   const { name, email, password } = req.body;
+
   const user = await User.create({
     name,
     email,
@@ -19,12 +20,16 @@ module.exports.register = async (req, res, next) => {
       url: myCloud.secure_url,
     },
   });
-  sendToken(user, 201, res, "Registered Successfully !");
-};
+  res.status(201).json({
+    success: true,
+    user,
+    msg: "Registered Successfully!",
+  });
+});
 
 // Login
 
-module.exports.login = async (req, res, next) => {
+module.exports.login = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return next(new ErrorHandler("Please Enter email and password!", 400));
@@ -37,17 +42,9 @@ module.exports.login = async (req, res, next) => {
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Invalid Email or Password !", 401));
   }
-  sendToken(user, 200, res, "Login Successfully !");
-};
-
-// Log out User
-module.exports.logout = async (req, res, next) => {
-  res.cookie("token", null, {
-    expires: new Date(Date.now()),
-    httpOnly: true,
-  });
   res.status(200).json({
     success: true,
-    message: "Logged out successfully!",
+    message: "Loggedin successfully !",
+    user,
   });
-};
+});

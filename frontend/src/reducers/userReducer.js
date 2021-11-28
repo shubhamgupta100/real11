@@ -43,6 +43,7 @@ export const userReducer = (state = { user: {} }, action) => {
         user: null,
         error: action.payload,
       };
+
     case LOGOUT_FAIL:
       return {
         ...state,

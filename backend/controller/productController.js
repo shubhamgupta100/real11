@@ -1,9 +1,10 @@
 const Product = require("../model/product");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/errorHandler");
 
-module.exports.createProduct = async (req, res) => {
+module.exports.createProduct = catchAsyncErrors(async (req, res) => {
   let images = [];
 
   if (typeof req.body.images === "string") {
@@ -32,10 +33,10 @@ module.exports.createProduct = async (req, res) => {
     product,
     success: true,
   });
-};
+});
 
 // Get All Product
-module.exports.getAllProducts = async (req, res, next) => {
+module.exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   const productCount = await Product.countDocuments();
   const products = await Product.find();
 
@@ -44,9 +45,9 @@ module.exports.getAllProducts = async (req, res, next) => {
     productCount,
     products,
   });
-};
+});
 
-module.exports.getProductDetail = async (req, res, next) => {
+module.exports.getProductDetail = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
   if (!product) {
     return next(new ErrorHandler("Product Not Found", 404));
@@ -55,4 +56,4 @@ module.exports.getProductDetail = async (req, res, next) => {
     success: true,
     product,
   });
-};
+});
