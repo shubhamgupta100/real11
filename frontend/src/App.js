@@ -5,6 +5,7 @@ import Navbar from "./components/Header/Navbar";
 import ProductDetail from "./components/Product/ProductDetail";
 import Cart from "./components/Cart/Cart";
 import LoginSignUp from "./components/User/LoginSignUp";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/product/:id" element={<ProductDetail />} />
           <Route exact path="/products/new" element={<NewProduct />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route path="*" exact={true} element={<NotFound />} />
         </Routes>
       </Router>
     </>

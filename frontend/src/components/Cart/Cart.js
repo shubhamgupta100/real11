@@ -36,6 +36,7 @@ const Cart = () => {
 
   const checkoutHandler = () => {
     alert.success("Order Placed Successfully");
+    localStorage.removeItem("cartItems");
     navigate("/");
   };
 
