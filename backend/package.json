@@ -1,5 +1,11 @@
-
 {
+  "name": "real11",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
@@ -21,4 +27,3 @@
     "validator": "^13.7.0"
   }
 }
-
