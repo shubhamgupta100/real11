@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import CreateIcon from "@material-ui/icons/Create";
 import { logout } from "../../actions/userAction";
 
 import "./navbar.css";
@@ -13,7 +14,9 @@ export default function Navbar() {
   const { cartItems } = useSelector((state) => state.cart);
   const alert = useAlert();
   const dispatch = useDispatch();
-
+  const createProduct = () => {
+    navigate("/products/new");
+  };
   const logoutUser = () => {
     dispatch(logout());
     alert.success("Logged out successfully !");
@@ -39,6 +42,15 @@ export default function Navbar() {
           <div className="login_signup_btn">
             {localStorage.getItem("real11_email") ? (
               <>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  endIcon={<CreateIcon />}
+                  style={{ borderRadius: 50, marginRight: 20 }}
+                  onClick={createProduct}
+                >
+                  Create Product
+                </Button>
                 <Button
                   variant="outlined"
                   color="primary"
