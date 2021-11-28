@@ -36,11 +36,22 @@ module.exports.createProduct = async (req, res) => {
 // Get All Product
 module.exports.getAllProducts = async (req, res, next) => {
   const productCount = await Product.countDocuments();
-  const products = Product.find();
+  const products = await Product.find();
 
   return res.status(200).json({
     success: true,
     productCount,
     products,
+  });
+};
+
+module.exports.getProductDetail = async (req, res, next) => {
+  let product = await Product.findById(req.params.id);
+  if (!product) {
+    return next(new ErrorHandler("Product Not Found", 404));
+  }
+  res.status(200).json({
+    success: true,
+    product,
   });
 };

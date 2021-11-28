@@ -23,3 +23,24 @@
   justify-content: center;
   align-items: center;
 }
+
+.right_container {
+  display: flex;
+  justify-content: center;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+}
+.cart_Item {
+  position: relative;
+  top: -20px;
+  color: gray;
+}
+
+.home_link {
+  text-decoration: none !important;
+}
