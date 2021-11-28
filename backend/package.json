@@ -1,10 +1,7 @@
 {
-  "name": "real11",
+  "name": "backend",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.x"
-  },
-  "description": "",
+  "description": "real11assignment",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,14 +9,16 @@
     "dev": "nodemon index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
+  "keywords": [
+    "Shubham"
+  ],
   "author": "Shubham Gupta",
+  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
     "cloudinary": "^1.27.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
