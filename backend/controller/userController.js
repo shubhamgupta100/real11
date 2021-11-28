@@ -1,8 +1,9 @@
 const User = require("../model/user");
 const sendToken = require("../utils/jwtTokens");
 const cloudinary = require("cloudinary");
+const ErrorHandler = require("../utils/errorHandler");
 //Register
-module.exports.register = (req, res, next) => {
+module.exports.register = async (req, res, next) => {
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,

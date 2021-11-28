@@ -1,6 +1,7 @@
 const Product = require("../model/product");
 
 const cloudinary = require("cloudinary");
+const ErrorHandler = require("../utils/errorHandler");
 
 module.exports.createProduct = async (req, res) => {
   let images = [];
