@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+.navbar {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 5% 0 5%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 10px 1px rgb(202, 195, 195);
+  height: 70px;
+}
+.heading {
+  font-family: "Sofia";
+  font-size: large;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_signup_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
