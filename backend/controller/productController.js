@@ -25,11 +25,11 @@ module.exports.createProduct = async (req, res) => {
   }
 
   req.body.images = imagesLinks;
-  req.body.user = req.user.id;
   const product = await Product.create(req.body);
   res.status(201).json({
     message: "Product is created",
     product,
+    success: true,
   });
 };
 
