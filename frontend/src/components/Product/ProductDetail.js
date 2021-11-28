@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProductDetails } from "../../actions/productAction";
-// import Loader from "../layout/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert";
-// import MetaData from "../layout/MetaData";
+import MetaData from "../MetaData";
 import { addItemsToCart } from "../../actions/cartAction";
 import "./productDetail.css";
 
@@ -16,7 +16,6 @@ const ProductsDetail = () => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-  console.log(product);
 
   const [quantity, setQuantity] = useState(1);
   const increaseQuantity = () => {
@@ -49,11 +48,10 @@ const ProductsDetail = () => {
   return (
     <Fragment>
       {loading ? (
-        // <Loader />
-        <></>
+        <Loader />
       ) : (
         <Fragment>
-          {/* <MetaData title={`${product.name} -- ECOMMERCE`} /> */}
+          <MetaData title={`${product.name} -- ECOMMERCE`} />
           <div className="ProductDetails">
             <div>
               <Carousel>
