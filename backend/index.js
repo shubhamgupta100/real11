@@ -31,7 +31,7 @@ app.use("/", require("./routes/index"));
 //   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 // });
 
-const server = app.listen(process.env.PORT, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(`Error on running the server:${err}`);
   } else {
