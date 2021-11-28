@@ -25,13 +25,15 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="login_signup_btn">
-            <Button
-              variant="outlined"
-              color="primary"
-              style={{ borderRadius: 50 }}
-            >
-              LogIn/SignUp
-            </Button>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <Button
+                variant="outlined"
+                color="primary"
+                style={{ borderRadius: 50 }}
+              >
+                LogIn/SignUp
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

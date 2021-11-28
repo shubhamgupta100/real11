@@ -7,9 +7,11 @@ import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
   const alert = useAlert();
   const increaseQuantity = (id, quantity, stock) => {
@@ -34,6 +36,7 @@ const Cart = () => {
 
   const checkoutHandler = () => {
     alert.success("Order Placed Successfully");
+    navigate("/");
   };
 
   return (
