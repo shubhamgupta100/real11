@@ -23,7 +23,17 @@ function App() {
             }
           />
           <Route exact path="/product/:id" element={<ProductDetail />} />
-          <Route exact path="/products/new" element={<NewProduct />} />
+          <Route
+            exact
+            path="/products/new"
+            element={
+              localStorage.getItem("real11_email") ? (
+                <NewProduct />
+              ) : (
+                <LoginSignUp />
+              )
+            }
+          />
           <Route exact path="/cart" element={<Cart />} />
           <Route path="*" exact={true} element={<NotFound />} />
         </Routes>
