@@ -11,7 +11,7 @@ const app = express();
 const errorMiddleware = require("./middleware/error");
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "config/config.env" });
+  require("dotenv").config({ path: "backend/config/config.env" });
 }
 
 const db = require("./config/mongoose");
