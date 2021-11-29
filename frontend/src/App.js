@@ -14,7 +14,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<LoginSignUp />} />
+
+          <Route
+            exact
+            path="/login"
+            element={
+              localStorage.getItem("real11_email") ? <Home /> : <LoginSignUp />
+            }
+          />
           <Route exact path="/product/:id" element={<ProductDetail />} />
           <Route exact path="/products/new" element={<NewProduct />} />
           <Route exact path="/cart" element={<Cart />} />

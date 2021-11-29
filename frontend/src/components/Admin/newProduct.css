@@ -1,10 +1,6 @@
-body {
-  font-family: "Ovo" !important;
-}
 .newProductContainer {
   width: 100%;
   box-sizing: border-box;
-  /* background-color: rgb(221, 221, 221); */
   border-left: 1px solid rgba(0, 0, 0, 0.158);
   display: flex;
   flex-direction: column;
@@ -18,6 +14,8 @@ body {
   text-align: center;
   position: relative;
   top: -40px;
+  border-bottom: 3px solid #1266f1;
+  width: 80%;
 }
 
 .createProductForm {
@@ -32,13 +30,16 @@ body {
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
   position: relative;
-  /* top: -40px; */
+  border-top-left-radius: 3vmax;
+  border-bottom-right-radius: 3vmax;
 }
 
 .createProductForm > div {
   display: flex;
   width: 100%;
   align-items: center;
+  position: relative;
+  top: -2vmax;
 }
 .createProductForm > div > input,
 .createProductForm > div > select,
@@ -104,4 +105,5 @@ body {
   border-radius: 4px;
   outline: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+  border-radius: 20px;
 }

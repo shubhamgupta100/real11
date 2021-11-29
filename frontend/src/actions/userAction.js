@@ -43,6 +43,7 @@ export const register = (userData) => async (dispatch) => {
       userData,
       config
     );
+    localStorage.setItem("real11_email", userData.email);
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {

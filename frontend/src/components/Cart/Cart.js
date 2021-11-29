@@ -47,7 +47,7 @@ const Cart = () => {
           <RemoveShoppingCartIcon />
 
           <Typography>No Product in Your Cart</Typography>
-          <Link to="/products">View Products</Link>
+          <Link to="/">Go To Home</Link>
         </div>
       ) : (
         <Fragment>
@@ -99,9 +99,17 @@ const Cart = () => {
                 )}`}</p>
               </div>
               <div></div>
-              <div className="checkOutBtn">
-                <button onClick={checkoutHandler}>Check Out</button>
-              </div>
+              {localStorage.getItem("real11_email") ? (
+                <div className="checkOutBtn">
+                  <button onClick={checkoutHandler}>Check Out</button>
+                </div>
+              ) : (
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                  <div className="checkOutBtn">
+                    <button>Login to place order</button>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
         </Fragment>

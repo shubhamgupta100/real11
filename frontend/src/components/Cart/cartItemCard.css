@@ -1,7 +1,3 @@
-body {
-  font-family: "Ovo" !important;
-}
-
 .CartItemCard {
   display: flex;
   padding: 1vmax;
@@ -34,30 +30,4 @@ body {
   color: tomato;
   font: 100 0.8vmax "Roboto";
   cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .CartItemCard {
-    padding: 3vmax;
-    height: 25vmax;
-  }
-  .CartItemCard > img {
-    width: 10vmax;
-  }
-
-  .CartItemCard > div {
-    margin: 1vmax 2vmax;
-  }
-
-  .CartItemCard > div > a {
-    font: 300 2vmax cursive;
-  }
-
-  .CartItemCard > div > span {
-    font: 300 1.9vmax "Roboto";
-  }
-
-  .CartItemCard > div > p {
-    font: 100 1.8vmax "Roboto";
-  }
 }
